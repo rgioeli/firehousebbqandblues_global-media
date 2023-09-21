@@ -104,7 +104,10 @@ export default function Home() {
           />
           <div className="grid grid-cols-three-column-menu gap-5 py-5">
             {Array.from(Array(22)).map((_, index) => (
-              <div className="shadow-custom-shadow p-2.5 rounded-md">
+              <div
+                className="shadow-custom-shadow p-2.5 rounded-md"
+                key={index}
+              >
                 <div key={index} className="relative w-auto h-72">
                   <Image
                     src={`/images/memories/memory${index}.jpg`}
