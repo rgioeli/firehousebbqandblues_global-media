@@ -105,7 +105,7 @@ export default function Home() {
           <div className="grid grid-cols-three-column-menu gap-5 py-5">
             {Array.from(Array(22)).map((_, index) => (
               <div
-                className="shadow-custom-shadow p-2.5 rounded-md"
+                className={`flex flex-col  justify-between menu-item p-2.5 hover:bg-gray-100 transition-colors duration-300 shadow-custom-shadow rounded-md ${themeColorBackground} text-[#111]`}
                 key={index}
               >
                 <div key={index} className="relative w-auto h-72">
