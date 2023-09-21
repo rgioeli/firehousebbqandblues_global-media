@@ -1,113 +1,123 @@
-import Image from 'next/image'
+"use client";
+
+import Image from "next/image";
+import firehouseData from "../items.json";
+import { Montserrat } from "next/font/google";
+import Header from "./_global_components/Header";
+
+type FoodItem = {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  price: number;
+};
+
+const montserrat = Montserrat({ weight: "500", subsets: ["latin"] });
+const backgroundColor = "#111";
+const themeColorBackground = "bg-[#fff]";
+const themeColorText = "text-[#111]";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main className={`bg-[#111] overflow-x-hidden text-white`}>
+      <nav className="fixed top-0 z-50 w-full bg-[#0B0D12]/90 transition-opacity duration-200 text-white hidden md:flex md:flex-col">
+        <div className="max-w-6xl mx-auto flex-col justify-between w-full py-5">
+          {/* <div className="w-full flex justify-center pb-5 pt-2.5">
+            <span className="text-sm">
+              400 N 8th St, Richmond, IN 47374 | {"("}765{")"} 598-5440
+            </span>
+            <span></span>
+          </div> */}
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+          <div className="flex justify-between items-center px-2.5">
+            <h1 className="text-2xl font-bold">Firehouse BBQ & Blues</h1>
+            <ul className="flex items-center gap-x-5 text-lg cursor-pointer">
+              <li>Menu</li>
+              <li>Gallery</li>
+              <li>About</li>
+              <li className={`bg-red-800 text-white p-2.5`}>Order Online</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div className="h-[calc(100vh-50vh)] w-screen relative">
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
+          height={1080}
+          width={1920}
+          src="/images/bar-view.jpg"
+          alt="firehouse bbq and blues"
+          className="w-full h-full object-cover object-custom-between-top-and-middle"
           priority
         />
+        <div className="absolute top-0 bg-black/10 w-full h-full z-20"></div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="mx-auto max-w-6xl py-5 px-2.5">
+        <div className="flex items-center gap-x-2.5 pb-2.5">
+          <button className="border px-2.5 py-1 rounded-lg border-white bg-red-800 text-white">
+            Menu
+          </button>
+          <button className="border px-2.5 py-1 rounded-lg border-white hover:bg-gray-800 hover:text-white">
+            Entertainment
+          </button>
+          <button className="border px-2.5 py-1 rounded-lg border-white hover:bg-gray-800 hover:text-white">
+            Good Times
+          </button>
+        </div>
+        <Header
+          header="Menu"
+          subHeader="Smokin' Selections: BBQ Delights Await!"
+          styles="py-5"
+        />
+        {/** Grid Menu */}
+        <div className="grid grid-cols-1 sm:grid-cols-two-column-menu md:grid-cols-three-column-menu lg:grid-cols-four-column-menu gap-5 py-2.5">
+          {firehouseData.menu.map((item: FoodItem) => {
+            return (
+              <div
+                key={item.id}
+                className={`flex flex-col  justify-between menu-item p-2.5 hover:bg-gray-100 transition-colors duration-300 shadow-custom-shadow rounded-md ${themeColorBackground} text-[#111]`}
+              >
+                <div>
+                  <h1 className={`${montserrat.className} pb-2.5 font-bold`}>
+                    {item.name}
+                  </h1>
+                  <div className="relative w-auto h-72">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="py-2.5 font-bold">${item.price}</h3>
+                  <p className="pt-2.5">{item.description}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="py-5">
+          <Header
+            header="Good Times"
+            subHeader="Capturing the Rhythm of BBQ and Blues"
+          />
+          <div className="grid grid-cols-three-column-menu gap-5 py-5">
+            {Array.from(Array(22)).map((_, index) => (
+              <div className="shadow-custom-shadow p-2.5 rounded-md">
+                <div key={index} className="relative w-auto h-72">
+                  <Image
+                    src={`/images/memories/memory${index}.jpg`}
+                    alt={"memory"}
+                    fill
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
-  )
+  );
 }

@@ -1,0 +1,75 @@
+{
+    "menu": [
+      {
+        "id": 1,
+        "name": "Classic BBQ Ribs",
+        "image": "/images/food.jpg",
+        "description": "Tender, slow-cooked ribs basted in our signature BBQ sauce.",
+        "price": 18.99
+      },
+      {
+        "id": 2,
+        "name": "Pulled Pork Sandwich",
+        "image": "/images/food.jpg",
+        "description": "Shredded pork piled high on a toasted bun with coleslaw.",
+        "price": 12.99
+      },
+      {
+        "id": 3,
+        "name": "Texas Brisket Platter",
+        "image": "/images/food.jpg",
+        "description": "Sliced Texas-style brisket with a side of beans and cornbread.",
+        "price": 16.99
+      },
+      {
+        "id": 4,
+        "name": "BBQ Chicken Wings",
+        "image": "/images/food.jpg",
+        "description": "Crispy chicken wings smothered in BBQ sauce, served with ranch dip.",
+        "price": 10.99
+      },
+      {
+        "id": 5,
+        "name": "Vegetarian BBQ Burger",
+        "image": "/images/food.jpg",
+        "description": "Grilled veggie patty topped with BBQ sauce, lettuce, and tomato.",
+        "price": 9.99
+      },
+          {
+            "id": 6,
+            "name": "BBQ Pork Sausages",
+            "image": "/images/food.jpg",
+            "description": "Juicy pork sausages grilled to perfection, served with BBQ sauce.",
+            "price": 11.99
+          },
+          {
+            "id": 7,
+            "name": "Hickory Smoked Pulled Chicken",
+            "image": "/images/food.jpg",
+            "description": "Tender pulled chicken infused with hickory smoke flavor, piled high on a bun.",
+            "price": 13.99
+          },
+          {
+            "id": 8,
+            "name": "Spicy BBQ Shrimp Skewers",
+            "image": "/images/food.jpg",
+            "description": "Jumbo shrimp skewers grilled with a spicy BBQ glaze and served with rice.",
+            "price": 15.99
+          },
+          {
+            "id": 9,
+            "name": "BBQ Beef Brisket Tacos",
+            "image": "/images/food.jpg",
+            "description": "Sliced beef brisket stuffed into soft tortillas with slaw and BBQ drizzle.",
+            "price": 14.99
+          },
+          {
+            "id": 10,
+            "name": "Grilled Corn on the Cob",
+            "image": "/images/food.jpg",
+            "description": "Fresh corn on the cob grilled with butter and BBQ seasoning.",
+            "price": 5.99
+          }
+      
+    ]
+  }
